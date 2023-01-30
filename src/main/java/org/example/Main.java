@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        var app = Javalin.create().start();
+        var app = Javalin.create().start(8000);
         TweetItemRestApi tweetItems= new TweetItemRestApi();
         app.routes(()->{
             path("/tweet",()->{
@@ -28,7 +28,5 @@ public class Main {
                 });
             });
         });
-        app.get("/tweet",tweetItems::get);
-        app.get("/tweet/{id}",tweetItems::getByID);
     }
 }
