@@ -1,7 +1,7 @@
-package com.testing.javalin.restAPi;
+package javalin.restAPi;
 
-import com.testing.javalin.models.TweetItem;
-import com.testing.javalin.services.TweetItemController;
+import javalin.models.TweetItem;
+import javalin.services.TweetItemController;
 import io.javalin.http.Context;
 
 public class TweetItemRestApi {
@@ -11,20 +11,18 @@ public class TweetItemRestApi {
     }
     public void getByID(Context ctx){
         TweetItem foundTweet = tweetController.getTweetById(ctx.pathParamAsClass("id",Long.class).get());
-
-        if(foundTweet!=null)
+        if(foundTweet!=null) {
             ctx.json(foundTweet);
+        }
         else {
-            ctx.json("not found");
+            ctx.html("not found");
             ctx.status(404);
         }
     }
     public void post(Context ctx){
         tweetController.createTweetItem(ctx.bodyAsClass(TweetItem.class));
         ctx.status(200);
-        ctx.res().setStatus(200);
     }
-
     public void put(Context ctx){
         tweetController.updateTweetItem(ctx.pathParamAsClass("id",Long.class).get(),ctx.bodyAsClass(TweetItem.class));
     }

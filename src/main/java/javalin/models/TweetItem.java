@@ -1,4 +1,4 @@
-package com.testing.javalin.models;
+package javalin.models;
 
 public class TweetItem {
     private long tweetID;
@@ -16,7 +16,7 @@ public class TweetItem {
         return tweetID;
     }
 
-    public void setTweetID(int tweetID) {
+    public void setTweetID(long tweetID) {
         this.tweetID = tweetID;
     }
 

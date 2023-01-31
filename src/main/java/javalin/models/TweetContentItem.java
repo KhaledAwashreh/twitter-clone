@@ -1,4 +1,4 @@
-package com.testing.javalin.models;
+package javalin.models;
 
 public class TweetContentItem {
     private String tweetText;

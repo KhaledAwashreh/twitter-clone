@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63ef03d5-323f-442d-833f-6bf1b1482a1d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/javalin/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javalin/repo/TweetItemRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/testing/javalin/models/TweetContentItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/models/TweetContentItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/testing/javalin/models/TweetItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/models/TweetItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/testing/javalin/repo/TweetItemRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/testing/javalin/restAPi/TweetItemRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/restAPi/TweetItemRestApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/testing/javalin/services/TweetItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/services/TweetItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -24,7 +33,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/com/testing/javalin/services/TweetItemController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/javalin/services/TweetItemController.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,29 +56,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/khaled/IdeaProjects/twitter-clone&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/khaled/IdeaProjects/equiptal",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/javalin/resources/webapp" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <option name="MAIN_CLASS_NAME" value="javalin.Main" />
       <module name="twitter-clone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="javalin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

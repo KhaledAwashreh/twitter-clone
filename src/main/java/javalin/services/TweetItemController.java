@@ -1,7 +1,7 @@
-package com.testing.javalin.services;
-import com.testing.javalin.models.TweetItem;
-import com.testing.javalin.repo.TweetItemRepo;
-import io.javalin.http.Context;
+package javalin.services;
+import javalin.models.TweetItem;
+import javalin.repo.TweetItemRepo;
+
 import java.util.List;
 public class TweetItemController {
     private TweetItemRepo repo= new TweetItemRepo();
