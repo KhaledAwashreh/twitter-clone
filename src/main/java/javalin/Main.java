@@ -6,6 +6,8 @@ import com.mitchellbosecke.pebble.loader.DelegatingLoader;
 import com.mitchellbosecke.pebble.loader.FileLoader;
 import com.mitchellbosecke.pebble.loader.Loader;
 import io.javalin.http.staticfiles.Location;
+import javalin.middlewear.TokenValidator;
+import javalin.restAPi.AuthenticationRestAPi;
 import javalin.restAPi.TweetItemRestApi;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.template.JavalinPebble;
@@ -25,6 +27,8 @@ public class Main {
         });
 
         TweetItemRestApi tweetItems= new TweetItemRestApi();
+        TokenValidator validator= new TokenValidator();
+        AuthenticationRestAPi authentication = new AuthenticationRestAPi();
 
         app.routes(()->{
             path("/tweet",()->{
@@ -36,7 +40,15 @@ public class Main {
                     delete(tweetItems::delete);
                 });
             });
+            path("/auth",()->{
+                path("/signup",()->{
+                    post(authentication::signup);
+                });
+            });
+            path("/login",()->{}
+            );
         });
+        app.before("/tweet",validator::validate);
         //setupJavalinPebble();
         app.start(8080);
     }

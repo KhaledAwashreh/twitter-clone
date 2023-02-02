@@ -1,5 +1,6 @@
 package javalin.restAPi;
 
+import io.javalin.http.NotFoundResponse;
 import javalin.models.TweetItem;
 import javalin.services.TweetItemController;
 import io.javalin.http.Context;
@@ -15,8 +16,7 @@ public class TweetItemRestApi {
             ctx.json(foundTweet);
         }
         else {
-            ctx.html("not found");
-            ctx.status(404);
+          throw new NotFoundResponse();
         }
     }
     public void post(Context ctx){
