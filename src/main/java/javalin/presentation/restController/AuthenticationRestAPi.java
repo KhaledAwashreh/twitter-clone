@@ -1,27 +1,27 @@
-package javalin.restAPi;
+package javalin.presentation.restController;
 
 import io.javalin.http.Context;
 import io.javalin.http.UnauthorizedResponse;
-import javalin.models.LoginRequest;
-import javalin.models.LoginResponse;
-import javalin.models.User;
-import javalin.services.UserService;
+import javalin.data.models.LoginRequest;
+import javalin.data.models.LoginResponse;
+import javalin.data.models.User;
+import javalin.presentation.controller.UserController;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class AuthenticationRestAPi {
-    UserService userService = new UserService();
+    UserController userController = new UserController();
 
     public void signup(Context ctx ){
     User toCreate = ctx.bodyAsClass(User.class);
-    userService.createUser(toCreate);
+    userController.createUser(toCreate);
     }
     public void login(Context ctx){
         LoginRequest toLogin = ctx.bodyAsClass(LoginRequest.class);
-        boolean isAuth= userService.authenticate(toLogin.getUsername(),toLogin.getPassword());
+        boolean isAuth= userController.authenticate(toLogin.getUsername(),toLogin.getPassword());
         if(isAuth){
             LoginResponse response = new LoginResponse();
-            String token = RandomStringUtils.random(30);
-            userService.addToken(token, userService.getUserByUsername(toLogin.getUsername()));
+            String token = RandomStringUtils.randomAlphanumeric(30);
+            userController.addToken(token, userController.getUserByUsername(toLogin.getUsername()));
             response.setToken(token);
             ctx.json(response);
         }

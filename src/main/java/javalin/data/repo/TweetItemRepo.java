@@ -1,5 +1,5 @@
-package javalin.repo;
-import javalin.models.TweetItem;
+package javalin.data.repo;
+import javalin.data.models.TweetItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;

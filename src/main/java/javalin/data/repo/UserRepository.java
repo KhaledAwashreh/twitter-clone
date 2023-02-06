@@ -1,6 +1,6 @@
-package javalin.repo;
+package javalin.data.repo;
 import org.apache.commons.lang3.StringUtils;
-import javalin.models.User;
+import javalin.data.models.User;
 import java.util.HashMap;
 import java.util.Map;
 

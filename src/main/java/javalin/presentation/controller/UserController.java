@@ -1,11 +1,11 @@
-package javalin.services;
-import javalin.models.User;
-import javalin.repo.UserRepository;
+package javalin.presentation.controller;
+import javalin.data.models.User;
+import javalin.data.repo.UserRepository;
 import org.apache.commons.lang3.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserService {
+public class UserController {
     UserRepository userRepository= new UserRepository();
 
     public static final Map<String,User> TOKENS = new HashMap<>();
@@ -15,7 +15,8 @@ public class UserService {
         return StringUtils.equals(result.getPassword(),password);
     else
         return false;
-    }public void createUser(User user){
+    }
+    public void createUser(User user){
         userRepository.createUser(user);
     }
     public void addToken(String token, User user){

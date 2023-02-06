@@ -1,8 +1,8 @@
-package javalin.restAPi;
+package javalin.presentation.restController;
 
 import io.javalin.http.NotFoundResponse;
-import javalin.models.TweetItem;
-import javalin.services.TweetItemController;
+import javalin.data.models.TweetItem;
+import javalin.presentation.controller.TweetItemController;
 import io.javalin.http.Context;
 
 public class TweetItemRestApi {

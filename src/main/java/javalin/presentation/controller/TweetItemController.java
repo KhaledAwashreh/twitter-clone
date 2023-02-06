@@ -1,6 +1,6 @@
-package javalin.services;
-import javalin.models.TweetItem;
-import javalin.repo.TweetItemRepo;
+package javalin.presentation.controller;
+import javalin.data.models.TweetItem;
+import javalin.data.repo.TweetItemRepo;
 
 import java.util.List;
 public class TweetItemController {

@@ -1,4 +1,4 @@
-package javalin.models;
+package javalin.data.models;
 
 public class TweetItem {
     private long tweetID;
