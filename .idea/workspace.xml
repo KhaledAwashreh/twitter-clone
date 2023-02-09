@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63ef03d5-323f-442d-833f-6bf1b1482a1d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/JdbiProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/dao/TwitterItemDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/dto/TweetItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/dto/TweetItemDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/repo/TweetItemRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/repository/TweetItemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" afterDir="false" />
-    </list>
+    <list default="true" id="63ef03d5-323f-442d-833f-6bf1b1482a1d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
