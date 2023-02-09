@@ -1,9 +1,8 @@
-package javalin.data.repo;
+package javalin.data.repository;
 import org.apache.commons.lang3.StringUtils;
 import javalin.data.models.User;
 import java.util.HashMap;
 import java.util.Map;
-
 public class UserRepository {
     private int userId=0;
     private static  final Map<Long, User> USERS = new HashMap<  >();

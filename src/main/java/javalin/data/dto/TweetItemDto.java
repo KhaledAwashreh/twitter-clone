@@ -1,24 +1,19 @@
 package javalin.data.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+import java.util.Date;
+@Data
+@NoArgsConstructor
 public class TweetItemDto {
-    private String tweetText;
-    private long tweetId;
-
-    public TweetItemDto(String tweetText) {
-        this.tweetText = tweetText;
-    }
-    public String getTweetText() {
-        return tweetText;
-    }
-    public void setTweetText(String tweetText) {
-        this.tweetText = tweetText;
-    }
-
-    public long getTweetId() {
-        return tweetId;
-    }
-
-    public void setTweetId(long tweetId) {
-        this.tweetId = tweetId;
-    }
+    @NonNull
+    private String tweet_content;
+    @NonNull
+    private Date tweet_date;
+    @NonNull
+    private long tweet_id;
+    @NonNull
+    private long tweet_owner_id;
 }

@@ -1,10 +1,10 @@
 package javalin.presentation.controller;
 import javalin.data.models.TweetItem;
-import javalin.data.repo.TweetItemRepo;
+import javalin.data.repository.TweetItemRepositoryImpl;
 
 import java.util.List;
 public class TweetItemController {
-    private TweetItemRepo repo= new TweetItemRepo();
+    private TweetItemRepositoryImpl repo= new TweetItemRepositoryImpl();
     public TweetItemController(){};
     public List<TweetItem> returnAllTweets(){
         return repo.returnAllTweets();

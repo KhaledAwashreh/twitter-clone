@@ -6,19 +6,25 @@ import com.mitchellbosecke.pebble.loader.DelegatingLoader;
 import com.mitchellbosecke.pebble.loader.FileLoader;
 import com.mitchellbosecke.pebble.loader.Loader;
 import io.javalin.http.staticfiles.Location;
+import javalin.data.dao.TweetItemDAO;
+import javalin.data.dao.UserDAO;
+import javalin.data.dto.TweetItemDto;
 import javalin.presentation.middleware.TokenValidator;
 import javalin.presentation.restController.AuthenticationRestAPi;
 import javalin.presentation.restController.TweetItemRestApi;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.template.JavalinPebble;
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
 
         var app = Javalin.create(config -> {
@@ -30,6 +36,12 @@ public class Main {
         TweetItemRestApi tweetItems= new TweetItemRestApi();
         TokenValidator validator= new TokenValidator();
         AuthenticationRestAPi authentication = new AuthenticationRestAPi();
+        Jdbi jdbi=Jdbi.create("jdbc:mariadb://localhost:3306/twitterdb?user=root&password=root");
+        jdbi.installPlugin(new SqlObjectPlugin());
+        TweetItemDAO tweetDao=jdbi.onDemand(TweetItemDAO.class);
+        UserDAO userDao=jdbi.onDemand(UserDAO.class);
+
+        System.out.print(userDao.getAll());
 
         app.routes(()->{
             path("/tweet",()->{

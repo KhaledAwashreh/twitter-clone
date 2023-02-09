@@ -1,6 +1,6 @@
 package javalin.presentation.controller;
 import javalin.data.models.User;
-import javalin.data.repo.UserRepository;
+import javalin.data.repository.UserRepository;
 import org.apache.commons.lang3.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
