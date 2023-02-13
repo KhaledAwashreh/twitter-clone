@@ -9,11 +9,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class TweetItemDto {
     @NonNull
-    private String tweet_content;
+    private String tweetContent;
     @NonNull
-    private Date tweet_date;
+    private Date tweetDate;
     @NonNull
-    private long tweet_id;
+    private long tweetId;
     @NonNull
-    private long tweet_owner_id;
+    private long tweetOwnerId;
 }

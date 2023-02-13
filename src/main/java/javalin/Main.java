@@ -8,12 +8,19 @@ import com.mitchellbosecke.pebble.loader.Loader;
 import io.javalin.http.staticfiles.Location;
 import javalin.data.dao.TweetItemDAO;
 import javalin.data.dao.UserDAO;
-import javalin.data.dto.TweetItemDto;
-import javalin.presentation.middleware.TokenValidator;
-import javalin.presentation.restController.AuthenticationRestAPi;
+import javalin.data.repository.TweetItemRepositoryImpl;
+import javalin.data.repository.UserRepositoryImpl;
+import javalin.domain.repository.TweetItemRepository;
+import javalin.domain.service.TweetItemService;
+import javalin.domain.service.UserService;
+import javalin.domain.service.impl.TweetItemServiceImpl;
+import javalin.domain.service.impl.UserServiceImpl;
+import javalin.presentation.controller.TweetItemController;
+import javalin.presentation.controller.UserController;
 import javalin.presentation.restController.TweetItemRestApi;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.template.JavalinPebble;
+import javalin.presentation.restController.UserRestAPi;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
@@ -33,15 +40,24 @@ public class Main {
             config.addSinglePageRoot("/","src/main/resources/webapp", Location.EXTERNAL);
         });
 
-        TweetItemRestApi tweetItems= new TweetItemRestApi();
-        TokenValidator validator= new TokenValidator();
-        AuthenticationRestAPi authentication = new AuthenticationRestAPi();
+
         Jdbi jdbi=Jdbi.create("jdbc:mariadb://localhost:3306/twitterdb?user=root&password=root");
         jdbi.installPlugin(new SqlObjectPlugin());
         TweetItemDAO tweetDao=jdbi.onDemand(TweetItemDAO.class);
         UserDAO userDao=jdbi.onDemand(UserDAO.class);
 
-        System.out.print(userDao.getAll());
+
+        TweetItemRepository tweetItemRepository=new TweetItemRepositoryImpl(tweetDao);
+        TweetItemService tweetItemService=new TweetItemServiceImpl(tweetItemRepository);
+        TweetItemController tweetItemController = new TweetItemController(tweetItemService);
+        TweetItemRestApi tweetItems= new TweetItemRestApi(tweetItemController);
+
+        UserRepositoryImpl userRepository =new UserRepositoryImpl(userDao);
+        UserService userService=new UserServiceImpl(userRepository);
+        UserController userController = new UserController(userService);
+        UserRestAPi users= new UserRestAPi(userController);
+        userController.deleteUser(1212312312);
+        System.out.println(userController.returnALlUsers());
 
         app.routes(()->{
             path("/tweet",()->{
@@ -53,20 +69,11 @@ public class Main {
                     delete(tweetItems::delete);
                 });
             });
-            path("/auth",()->{
-                path("/signup",()->{
-                    post(authentication::signup);
-                });
-                path("/login",()-> {
-                    post(authentication::login);
-                });            });
 
         });
-        app.before("/tweet",validator::validate);
         //setupJavalinPebble();
         app.start(8080);
     }
-
 
     private static void setupJavalinPebble() {
         boolean isProduction = Boolean.parseBoolean(System.getProperty("production", "false"));

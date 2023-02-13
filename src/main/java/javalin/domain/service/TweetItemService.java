@@ -1,9 +1,11 @@
-package javalin.domain.repository;
+package javalin.domain.service;
 
 import javalin.data.dto.TweetItemDto;
+
 import java.util.List;
 
-public interface TweetItemRepository {
+public interface TweetItemService {
+
 
     public List<TweetItemDto> returnAllTweets();
     public TweetItemDto getTweetById(long tweetId);

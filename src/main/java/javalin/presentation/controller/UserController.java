@@ -1,33 +1,29 @@
 package javalin.presentation.controller;
-import javalin.data.models.User;
-import javalin.data.repository.UserRepository;
-import org.apache.commons.lang3.StringUtils;
-import java.util.HashMap;
-import java.util.Map;
+import javalin.data.dto.UserDto;
+import javalin.domain.service.UserService;
+
+import java.util.List;
 
 public class UserController {
-    UserRepository userRepository= new UserRepository();
+    private final UserService  userService;
 
-    public static final Map<String,User> TOKENS = new HashMap<>();
-    public boolean authenticate(String username, String password ){
-    User result = userRepository.getUserByUsername(username);
-    if(result!=null)
-        return StringUtils.equals(result.getPassword(),password);
-    else
-        return false;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
-    public void createUser(User user){
-        userRepository.createUser(user);
+    public List<UserDto> returnALlUsers(){
+        return userService.returnAllUsers();
     }
-    public void addToken(String token, User user){
-        TOKENS.put(token,user);
+    public UserDto getUserById(long userId){
+        return userService.getUserById(userId);
     }
-    public User validateToken(String token){
-        return TOKENS.getOrDefault(token,null);
+    public void updateUser(UserDto user){
+        userService.updateUser(user);
     }
-    public User getUserByUsername(String username){
-        return userRepository.getUserByUsername(username);
+    public void createUser(UserDto user){
+        userService.createNewUser(user);
     }
-
+    public void deleteUser(long userId){
+        userService.deleteUser(userId);
+    }
 
 }

@@ -4,20 +4,24 @@ import java.sql.SQLException;
 import java.util.List;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
+import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 public interface UserDAO {
     @SqlQuery("SELECT * FROM user")
     @RegisterBeanMapper(UserDto.class)
-    List<UserDto> getAll() throws SQLException;
-    @SqlQuery("SELECT tweet_id, tweet_content, tweet_time, tweet_owner_id + from tweet where tweet_id= :id ")
+    List<UserDto> getAll();
+    @SqlQuery("SELECT * FROM user where user_id=:id")
     @RegisterBeanMapper(UserDto.class)
-    UserDto get(@Bind("id") long Id) throws SQLException;
+    UserDto get(@Bind("id") long Id);
+    @SqlQuery("SELECT * FROM user where username=:username")
+    @RegisterBeanMapper(UserDto.class)
+    UserDto getByUsername(@Bind("username") String username);
+    @SqlUpdate("INSERT INTO user(user_id,username,password) VALUES (:u.userId,:u.username,:u.password")
+    void create(@BindBean("u") UserDto u);
     @SqlUpdate("placeholder")
-    void create(UserDto t) throws SQLException;
-    @SqlUpdate("placeholder")
-    void update(UserDto t) throws SQLException;
-    @SqlUpdate("placeholder")
-    void delete(UserDto t);
+    void update(UserDto u);
+    @SqlUpdate("DELETE FROM user where user_id=:userId")
+    void delete(@Bind("userId")  long userId);
 }

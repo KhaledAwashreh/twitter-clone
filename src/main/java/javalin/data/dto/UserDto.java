@@ -9,7 +9,7 @@ import lombok.NonNull;
 public class UserDto {
 
     @NonNull
-    private long user_id;
+    private long userId;
     @NonNull
     private String username;
     @NonNull

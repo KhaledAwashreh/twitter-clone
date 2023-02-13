@@ -1,25 +1,30 @@
 package javalin.presentation.controller;
+import javalin.data.dto.TweetItemDto;
 import javalin.data.models.TweetItem;
 import javalin.data.repository.TweetItemRepositoryImpl;
+import javalin.domain.service.TweetItemService;
 
 import java.util.List;
 public class TweetItemController {
-    private TweetItemRepositoryImpl repo= new TweetItemRepositoryImpl();
-    public TweetItemController(){};
-    public List<TweetItem> returnAllTweets(){
-        return repo.returnAllTweets();
+
+    private final TweetItemService tweetService;
+    public TweetItemController(TweetItemService service){
+        this.tweetService=service;
+    };
+    public List<TweetItemDto> returnAllTweets(){
+        return tweetService.returnAllTweets();
     }
-    public TweetItem getTweetById(long tweetId){
-        return repo.getTweetById(tweetId);
+    public TweetItemDto getTweetById(long tweetId){
+        return tweetService.getTweetById(tweetId);
     }
-    public void updateTweetItem(long tweetId, TweetItem tweet){
-        repo.updateTweetItem(tweetId,tweet);
+    public void updateTweetItem(TweetItemDto tweet){
+        tweetService.updateTweetItem(tweet);
     }
-    public void createTweetItem(TweetItem tweetItem){
-        repo.createTweetItem(tweetItem);
+    public void createTweetItem(TweetItemDto tweetItem){
+        tweetService.createTweetItem(tweetItem);
     }
     public void deleteTweetItem(long tweetId){
-        repo.deleteTweetItem(tweetId);
+        tweetService.deleteTweetItem(tweetId);
     }
 
 }

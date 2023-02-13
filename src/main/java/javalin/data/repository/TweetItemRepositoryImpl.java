@@ -22,29 +22,19 @@ public class TweetItemRepositoryImpl implements TweetItemRepository {
     public List<TweetItemDto> returnAllTweets(){
         return tweetItemDao.getAll();
     }
-    public TweetItemDto getTweetById(long tweetId){
-        try {
-            return tweetItemDao.get(tweetId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public TweetItemDto getTweetById(long desiredTweetId){
+
+            return tweetItemDao.get(desiredTweetId);
+
     }
-    public void updateTweetItem(long tweetId, TweetItemDto tweet){
-        try {
+    public void updateTweetItem(TweetItemDto tweet){
             tweetItemDao.update(tweet);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
     public void createTweetItem(TweetItemDto tweetItem){
-        try {
             tweetItemDao.create(tweetItem);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
     public void deleteTweetItem(long tweetId){
-        tweetList.remove(tweetId);
+    tweetItemDao.delete(tweetId);
     }
     private long getNextId(){
         tweetId++;
