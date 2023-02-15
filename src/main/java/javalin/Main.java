@@ -8,6 +8,8 @@ import com.mitchellbosecke.pebble.loader.Loader;
 import io.javalin.http.staticfiles.Location;
 import javalin.data.dao.TweetItemDAO;
 import javalin.data.dao.UserDAO;
+import javalin.data.dto.TweetItemDto;
+import javalin.data.dto.UserDto;
 import javalin.data.repository.TweetItemRepositoryImpl;
 import javalin.data.repository.UserRepositoryImpl;
 import javalin.domain.repository.TweetItemRepository;
@@ -17,6 +19,7 @@ import javalin.domain.service.impl.TweetItemServiceImpl;
 import javalin.domain.service.impl.UserServiceImpl;
 import javalin.presentation.controller.TweetItemController;
 import javalin.presentation.controller.UserController;
+import javalin.presentation.restController.AuthenticationControllerProvider;
 import javalin.presentation.restController.TweetItemRestApi;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.template.JavalinPebble;
@@ -25,6 +28,7 @@ import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -55,9 +59,8 @@ public class Main {
         UserRepositoryImpl userRepository =new UserRepositoryImpl(userDao);
         UserService userService=new UserServiceImpl(userRepository);
         UserController userController = new UserController(userService);
-        UserRestAPi users= new UserRestAPi(userController);
-        userController.deleteUser(1212312312);
-        System.out.println(userController.returnALlUsers());
+        AuthenticationControllerProvider authenticationController=new AuthenticationControllerProvider(userController);
+        UserRestAPi users= new UserRestAPi(userController,authenticationController);
 
         app.routes(()->{
             path("/tweet",()->{
@@ -70,11 +73,21 @@ public class Main {
                 });
             });
 
+            path("/user",()->{
+                get(users::get);
+            });
+            path("/auth",()->{
+                path("/login",()->{
+                    post(users::login);
+                });
+                path("/signup",()->{
+                    post(users::signup);
+                });
+            });
         });
         //setupJavalinPebble();
-        app.start(8080);
+        app.start(8080);        
     }
-
     private static void setupJavalinPebble() {
         boolean isProduction = Boolean.parseBoolean(System.getProperty("production", "false"));
         Loader loader = isProduction ? new DelegatingLoader(List.of(new ClasspathLoader(), new FileLoader())) : new FileLoader();

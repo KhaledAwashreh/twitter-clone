@@ -16,6 +16,9 @@ public class UserController {
     public UserDto getUserById(long userId){
         return userService.getUserById(userId);
     }
+    public UserDto getUserByUsername(String username){
+        return userService.getUserByUsername(username);
+    }
     public void updateUser(UserDto user){
         userService.updateUser(user);
     }

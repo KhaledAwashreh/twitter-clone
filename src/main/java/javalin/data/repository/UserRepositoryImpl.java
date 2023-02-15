@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
     private final UserDAO userDao;
-    private int userId=0;
+    private long userId=0;
 
     public UserRepositoryImpl(UserDAO dao) {
         this.userDao=dao;
@@ -35,12 +35,17 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void createUser(UserDto user) {
+        user.setUserId(getNextId());
         userDao.create(user);
     }
 
     @Override
     public void deleteUser(long userId) {
         userDao.delete(userId);
+    }
+    public long getNextId(){
+        long newId=userId+1;
+        return newId;
     }
 
 

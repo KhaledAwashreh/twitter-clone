@@ -18,7 +18,7 @@ public interface UserDAO {
     @SqlQuery("SELECT * FROM user where username=:username")
     @RegisterBeanMapper(UserDto.class)
     UserDto getByUsername(@Bind("username") String username);
-    @SqlUpdate("INSERT INTO user(user_id,username,password) VALUES (:u.userId,:u.username,:u.password")
+    @SqlUpdate("INSERT INTO user(user_id,username,password) VALUES (:u.userId,:u.username,:u.password)")
     void create(@BindBean("u") UserDto u);
     @SqlUpdate("placeholder")
     void update(UserDto u);
