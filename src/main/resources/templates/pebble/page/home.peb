@@ -1,0 +1,14 @@
+{% extends "/layout/root.peb" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container-fluid" text-center">
+        <header role="banner" class="sidebar">header</header>
+        <main role="main" class="content">
+            <div id="Home-timeline">main</div>
+        </main>
+        <div id="sideCollumn" class="col">sidebar</div>
+
+</div>
+{% endblock %}

@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63ef03d5-323f-442d-833f-6bf1b1482a1d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javalin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/data/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/data/repository/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/UserRestAPi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/UserRestAPi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/AuthenticationControllerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/middleware/AuthenticationMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/UserRestAPi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/webappScript.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +36,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="213eea11-df5b-4b17-b1c5-84d9be1c42e6" />
+        <option name="url" value="https://github.com/KhaledAwashreh/twitter-clone" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" root0="SKIP_INSPECTION" />
@@ -59,8 +79,8 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/khaled/IdeaProjects/equiptal/equiptal&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/khaled-work/IdeaProjects/twitter-clone&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -68,10 +88,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/css" />
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/javalin/resources/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/pebble/layout" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/pebble/page" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="javalin.presentation" />
@@ -123,29 +148,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java</url>
-          <line>18</line>
+          <line>40</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/javalin/data/repository/TweetItemRepositoryImpl.java</url>
@@ -153,18 +158,22 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java</url>
-          <line>17</line>
-          <properties class="javalin.presentation.restController.TweetItemRestApi" method="get">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/javalin/Main.java</url>
+          <line>54</line>
+          <properties>
+            <option name="lambda-ordinal" value="1" />
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/javalin/data/dao/UserDAO.java</url>
@@ -181,13 +190,18 @@
         <PinnedItemInfo parentTag="io.javalin.http.Context" memberName="res" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="exception" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/twitter_clone$Main.ic" NAME="Main Coverage Results" MODIFIED="1675853919460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/twitter_clone$Main.ic" NAME="Main Coverage Results" MODIFIED="1676978196487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>javalin.*</FILTER>
     </SUITE>
   </component>

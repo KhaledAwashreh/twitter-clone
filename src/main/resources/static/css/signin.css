@@ -1,0 +1,70 @@
+body{
+    background-color:rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+    color:black;
+    background-color:white;
+    font-size:medium;
+    height:2.5em;
+    text-align: center;
+    font-weight: bold;
+    font-family:"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.btn-primary{
+color:white;
+background-color:black;
+font-size:medium;
+height:2.5em;
+text-align: center;
+font-weight: bold;
+font-family:"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+h1{
+font-weight: bold;
+font-family:"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+.unified-size-and-margin{
+width:50%;
+margin-top:12;
+margin-bottom:12;
+}
+
+.btn{
+padding:3;
+}
+
+.form-signin{
+width:33%;
+height:69%;
+margin:auto;
+margin-top:10em;
+background-color:white;
+}
+
+
+#twitter-logo {
+    max-width: 30.3167px;
+    max-height: 24.6333px;
+}
+
+
+.separator{
+width:50%;
+margin:auto;
+max-height  :30%
+
+}
+
+
+
+
+
+
+
+
