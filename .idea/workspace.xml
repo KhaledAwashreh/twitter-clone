@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63ef03d5-323f-442d-833f-6bf1b1482a1d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/TweetItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/presentation/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/AuthenticationControllerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javalin/middleware/AuthenticationMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/TweetItemRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/javalin/presentation/restController/UserRestAPi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/webapp/webappScript.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +24,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
