@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
     private final UserDAO userDao;
-    private long userId=0;
+    private long userId;
 
     public UserRepositoryImpl(UserDAO dao) {
         this.userDao=dao;
@@ -44,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository {
         userDao.delete(userId);
     }
     public long getNextId(){
-        long newId=userId+1;
+        long newId=userDao.getLastUserId()+1;
         return newId;
     }
 

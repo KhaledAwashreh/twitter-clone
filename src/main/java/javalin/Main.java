@@ -1,12 +1,13 @@
 
 package javalin;
 import com.mitchellbosecke.pebble.PebbleEngine;
-
+import org.javatuples.Pair;
 import com.mitchellbosecke.pebble.loader.FileLoader;
 import com.mitchellbosecke.pebble.loader.Loader;
 import io.javalin.http.staticfiles.Location;
 import javalin.data.dao.TweetItemDAO;
 import javalin.data.dao.UserDAO;
+import javalin.data.dto.TweetItemDto;
 import javalin.data.repository.TweetItemRepositoryImpl;
 import javalin.data.repository.UserRepositoryImpl;
 import javalin.domain.repository.TweetItemRepository;
@@ -19,6 +20,9 @@ import javalin.presentation.controller.UserController;
 import javalin.middleware.AuthenticationMiddleware;
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.template.JavalinPebble;
+import javalin.presentation.view.HomeView;
+import javalin.presentation.view.LoginView;
+import org.flywaydb.core.Flyway;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
@@ -28,18 +32,18 @@ import java.sql.SQLException;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class Main {
+    private static TweetItemDAO tweetDao;
+    private static UserDAO userDao;
+
+
     public static void main(String[] args) throws SQLException {
         var app = Javalin.create(config -> {
             config.addStaticFiles("/static", Location.CLASSPATH);
+            config.showJavalinBanner = true;
 
         });
-
-
-        Jdbi jdbi=Jdbi.create("jdbc:mariadb://localhost:3306/twitterdb?user=root&password=root");
-        jdbi.installPlugin(new SqlObjectPlugin());
-        TweetItemDAO tweetDao=jdbi.onDemand(TweetItemDAO.class);
-        UserDAO userDao=jdbi.onDemand(UserDAO.class);
-
+        setupFlyway();
+        setUpJdbi();
 
         TweetItemRepository tweetItemRepository=new TweetItemRepositoryImpl(tweetDao);
         TweetItemService tweetItemService=new TweetItemServiceImpl(tweetItemRepository);
@@ -49,16 +53,18 @@ public class Main {
         UserService userService=new UserServiceImpl(userRepository);
         AuthenticationMiddleware authenticationController=new AuthenticationMiddleware(userService);
         UserController userController = new UserController(userService,authenticationController);
+        LoginView userView = new LoginView(userService);
+        HomeView homeView = new HomeView(userService,tweetItemService);
          app.routes(()->{
             path("/",()->{
-                get("home", ctx -> ctx.render("page/home.peb"));
-                get("login", ctx -> ctx.render("page/UsernameOrExternal.peb"));
-                get("login2", ctx -> ctx.render("page/UsernameAndPassword.peb"));
-
+                post("checkPassword",userView::checkUsernameAndPassword);
+                post("login", userView::checkUsernameAndRoute);
+                get("login", userView::checkUsernameAndRoute);
+                get("home", homeView::loadHomePage);
             });
             path("/tweet",()->{
                 get(tweetItemController::getAllTweets);
-                post(tweetItemController::createTweetItem);
+                post(homeView::createATweet);
                 path("{id}",()->{
                     get(tweetItemController::getTweetById);
                     put(tweetItemController::updateTweetItem);
@@ -66,7 +72,7 @@ public class Main {
                 });
             });
             path("/user",()->{
-                get(userController::returnALlUsers);
+                get(userController::returnAllUsers);
                 path("{username}",()->{
                     get(userController::getUserByUsername);
                 });
@@ -95,7 +101,23 @@ public class Main {
                 .loader(loader)
                 .build();
         JavalinPebble.configure(engine);
+
     }
+
+    private static void setupFlyway() {
+        Flyway flyway = Flyway.configure().baselineOnMigrate(true).dataSource("jdbc:mariadb://localhost:3306/twitterdb?", "root", "root").load();
+
+
+        flyway.migrate();
+    }
+    private static  void setUpJdbi(){
+        Jdbi jdbi=Jdbi.create("jdbc:mariadb://localhost:3306/twitterdb?user=root&password=root");
+        jdbi.installPlugin(new SqlObjectPlugin());
+         tweetDao=jdbi.onDemand(TweetItemDAO.class);
+         userDao=jdbi.onDemand(UserDAO.class);
+
+    }
+
 
 
 

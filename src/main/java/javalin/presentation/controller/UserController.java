@@ -7,8 +7,6 @@ import javalin.data.dto.UserLoginDto;
 import javalin.domain.service.UserService;
 import javalin.middleware.AuthenticationMiddleware;
 
-import java.util.List;
-
 public class UserController {
     private final UserService  userService;
     private final AuthenticationMiddleware authorizationMiddleware;
@@ -17,7 +15,7 @@ public class UserController {
         this.authorizationMiddleware=authorization;
         this.userService = userService;
     }
-    public void returnALlUsers(Context ctx){
+    public void returnAllUsers(Context ctx){
         ctx.json(userService.returnAllUsers());
     }
     public void getUserById(Context ctx){
@@ -29,7 +27,7 @@ public class UserController {
             throw new NotFoundResponse();
         }
     }
-    public void getUserByUsername(Context ctx){
+    public UserDto getUserByUsername(Context ctx){
         UserDto foundUser = userService.getUserByUsername(ctx.pathParamAsClass("username",String.class).get());
         if(foundUser!=null) {
             ctx.json(foundUser);
@@ -37,6 +35,7 @@ public class UserController {
         else {
             throw new NotFoundResponse();
         }
+        return foundUser;
     }
     public void login(Context ctx){
         UserLoginDto user = ctx.bodyAsClass(UserLoginDto.class);
@@ -53,6 +52,9 @@ public class UserController {
             throw new NotFoundResponse();
         }
     }
+
+
+
     public void signup(Context ctx){
         authorizationMiddleware.signup(ctx.bodyAsClass(UserDto.class));
         ctx.status(200);

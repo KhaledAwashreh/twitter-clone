@@ -1,14 +1,38 @@
 {% extends "/layout/root.peb" %}
 
-{% block title %} Home {% endblock %}
+        {% block title %} Home {% endblock %}
 
-{% block content %}
-<div class="container-fluid" text-center">
-        <header role="banner" class="sidebar">header</header>
-        <main role="main" class="content">
-            <div id="Home-timeline">main</div>
-        </main>
-        <div id="sideCollumn" class="col">sidebar</div>
+        {% block content %}
 
-</div>
-{% endblock %}
+        {% import "macros/Tweet.peb" %}
+    <div class="d-flex flex-column align-items-center">
+            <div class="tweet-list">
+                <div>
+                    <span>Home</span>
+                </div>
+
+                <form accept-charset="UTF-8" action="/tweet" method="post">
+                    <div class="d-flex">
+                        <p>image</p>
+                        <div class="d-flex flex-column">
+                            <textarea name="tweetBox" class="tweet-card" placeholder="What's happening?"></textarea>
+                            <div class="d-flex justify-content-between">
+                                <p>icons</p>
+                                <br></br>
+                                <button class="btn btn btn-primary">Tweet</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        <div>
+            <ol class="tweet-list bg-transparent">
+                {% for tweet in tweets %}
+                {{ tweetElement(tweetData=tweet) }}
+                {% endfor %}
+            </ol>
+
+        </div>
+    </div>
+        {% endblock %}

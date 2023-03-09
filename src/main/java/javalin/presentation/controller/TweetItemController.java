@@ -25,11 +25,11 @@ public class TweetItemController {
         }
     }
     public void updateTweetItem(Context ctx){
-        tweetService.createTweetItem(ctx.bodyAsClass(TweetItemDto.class));
+        tweetService.updateTweetItem(ctx.bodyAsClass(TweetItemDto.class));
         ctx.status(200);
     }
     public void createTweetItem(Context ctx){
-        tweetService.updateTweetItem(ctx.bodyAsClass(TweetItemDto.class));
+        tweetService.createTweetItem(ctx.bodyAsClass(TweetItemDto.class));
     }
     public void deleteTweetItem (Context ctx){
         tweetService.deleteTweetItem(ctx.pathParamAsClass("id",Long.class).get());

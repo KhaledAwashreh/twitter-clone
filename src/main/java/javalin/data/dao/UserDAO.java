@@ -24,4 +24,7 @@ public interface UserDAO {
     void update(UserDto u);
     @SqlUpdate("DELETE FROM user where user_id=:userId")
     void delete(@Bind("userId")  long userId);
+
+    @SqlQuery("SELECT user_id FROM user ORDER BY user_id DESC LIMIT 1")
+    int getLastUserId();
 }

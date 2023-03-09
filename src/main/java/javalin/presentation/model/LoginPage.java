@@ -1,12 +1,16 @@
-package javalin.data.dto;
+package javalin.presentation.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
 @NoArgsConstructor
-public class UserLoginDto {
+public class LoginPage {
     private String username;
     private String password;
+    private boolean hasUsername;
+    private boolean userExists;
+
+
+
 }
