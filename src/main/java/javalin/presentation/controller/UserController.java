@@ -14,14 +14,19 @@ public class UserController {
     public UserController(UserService userService,AuthenticationMiddleware authorization ) {
         this.authorizationMiddleware=authorization;
         this.userService = userService;
+
     }
     public void returnAllUsers(Context ctx){
         ctx.json(userService.returnAllUsers());
+        ctx.status(200);
+
     }
     public void getUserById(Context ctx){
         UserDto foundUser = userService.getUserById(ctx.pathParamAsClass("id",Long.class).get());
         if(foundUser!=null) {
             ctx.json(foundUser);
+            ctx.status(200);
+
         }
         else {
             throw new NotFoundResponse();
@@ -31,6 +36,8 @@ public class UserController {
         UserDto foundUser = userService.getUserByUsername(ctx.pathParamAsClass("username",String.class).get());
         if(foundUser!=null) {
             ctx.json(foundUser);
+            ctx.status(200);
+
         }
         else {
             throw new NotFoundResponse();
@@ -61,6 +68,8 @@ public class UserController {
     }
     public void updateUser(Context ctx){
         userService.updateUser(ctx.bodyAsClass(UserDto.class));
+        ctx.status(200);
+
     }
     public void deleteUser (Context ctx){
         userService.deleteUser(ctx.pathParamAsClass("id",Long.class).get() );

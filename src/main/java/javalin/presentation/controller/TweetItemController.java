@@ -14,11 +14,15 @@ public class TweetItemController {
     };
     public void getAllTweets(Context ctx){
         ctx.json(tweetService.returnAllTweets());
+        ctx.status(200);
+
     }
     public void getTweetById(Context ctx){
         TweetItemDto foundTweet = tweetService.getTweetById(ctx.pathParamAsClass("id",Long.class).get());
         if(foundTweet!=null) {
             ctx.json(foundTweet);
+            ctx.status(200);
+
         }
         else {
             throw new NotFoundResponse();
@@ -30,6 +34,8 @@ public class TweetItemController {
     }
     public void createTweetItem(Context ctx){
         tweetService.createTweetItem(ctx.bodyAsClass(TweetItemDto.class));
+        ctx.status(200);
+
     }
     public void deleteTweetItem (Context ctx){
         tweetService.deleteTweetItem(ctx.pathParamAsClass("id",Long.class).get());

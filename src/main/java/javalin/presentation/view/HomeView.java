@@ -22,11 +22,14 @@ public class HomeView {
     public HomeView(UserService userService, TweetItemService tweetService){
         this.userService=userService;
         this.tweetService=tweetService;
+
     }
     public void loadHomePage(Context ctx){
 
         List<DisplayedTweet> displayedTweetList= prepareTweetsToBeDisplayed();
         ctx.render("page/home.peb",asMap(displayedTweetList));
+        ctx.status(200);
+
     }
 
 
@@ -43,6 +46,8 @@ public class HomeView {
         newTweet.setTweetContent(tweetContent);
         tweetService.createTweetItem(newTweet);
         loadHomePage(ctx);
+        ctx.status(200);
+
     }
     public static Map<String, Object> asMap(Object data){
         return model("tweets",data);
@@ -60,6 +65,7 @@ public class HomeView {
             displayedTweetList.add(newTweet);
         }
         return displayedTweetList;
+
     }
 }
 
